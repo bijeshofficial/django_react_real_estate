@@ -159,3 +159,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 # File upload permissions
 FILE_UPLOAD_PERMISSIONS = 0o640
+
+
+# Use custom user model
+AUTH_USER_MODEL = 'accounts.UserAccount'
