@@ -9,7 +9,7 @@ User = get_user_model()
 
 
 class SignUpView(APIView):
-    permissions_classes = (permissions.AllowAny,)
+    permissions_classes = (permissions.AllowAny)
 
     def post(self, request, format=None):
         data = self.request.data
@@ -20,13 +20,13 @@ class SignUpView(APIView):
         password2 = data['password2']
 
         if password == password2:
-            if User.objects.filter(email=email().exist()):
+            if User.objects.filter(email=email).exists():
                 return Response({
                     'error': 'Email already exists',
                 })
             else:
                 if len(password) < 6:
-                    return ({
+                    return Response({
                         'error': 'Password must be atleast 6 characters long',
                     })
                 else:
