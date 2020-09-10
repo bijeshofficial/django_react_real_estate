@@ -26,6 +26,7 @@ urlpatterns = [
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
+    path('api/realtors/', include('realtors.urls')),
 ]
 
 if settings.DEBUG:
