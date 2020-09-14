@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/accounts/', include('accounts.urls')),
     path('admin/', admin.site.urls),
     path('api/realtors/', include('realtors.urls')),
+    path('api/lisings/', include('listings.urls')),
 ]
 
 if settings.DEBUG:
