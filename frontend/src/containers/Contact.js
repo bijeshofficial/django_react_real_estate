@@ -2,4 +2,4 @@ import React from "react";
 
 const contact = () => <div>Contact</div>;
 
-export default home;
+export default contact;
