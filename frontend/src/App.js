@@ -7,13 +7,15 @@ import Contact from "./containers/Contact";
 import Listings from "./containers/Listings";
 import LisitngDetail from "./containers/ListingDetail";
 import Login from "./containers/Login";
-import SignUp from "./containers/SingUp";
+import SignUp from "./containers/SignUp";
 
 import NotFound from "./components/NotFound";
 
 import Layout from "./hocs/Layout";
 
-const App = () => {
+import "./sass/main.scss";
+
+const App = () => (
   <Router>
     <Layout>
       <Switch>
@@ -27,7 +29,7 @@ const App = () => {
         <Route component={NotFound} />
       </Switch>
     </Layout>
-  </Router>;
-};
+  </Router>
+);
 
 export default App;
