@@ -6,8 +6,6 @@ from .models import Listing
 from .serializers import ListingSerializer, ListingDetailSerializer
 from datetime import datetime, timezone, timedelta
 
-# Create your views here.
-
 
 class ListingsView(ListAPIView):
     queryset = Listing.objects.order_by('-list_date').filter(is_published=True)
@@ -78,28 +76,28 @@ class SearchView(APIView):
 
         bathrooms = data['bathrooms']
         if bathrooms == '0+':
-            bathrooms = "0.0"
+            bathrooms = 0.0
         elif bathrooms == '1+':
-            bathrooms = "1.0"
+            bathrooms = 1.0
         elif bathrooms == '2+':
-            bathrooms = "2.0"
+            bathrooms = 2.0
         elif bathrooms == '3+':
-            bathrooms = "3.0"
+            bathrooms = 3.0
         elif bathrooms == '4+':
-            bathrooms = "4.0"
+            bathrooms = 4.0
 
         queryset = queryset.filter(bathrooms__gte=bathrooms)
 
         sqft = data['sqft']
         if sqft == '1000+':
             sqft = 1000
-        if sqft == '1200+':
+        elif sqft == '1200+':
             sqft = 1200
-        if sqft == '1500+':
+        elif sqft == '1500+':
             sqft = 1500
-        if sqft == '2000+':
+        elif sqft == '2000+':
             sqft = 2000
-        if sqft == 'Any':
+        elif sqft == 'Any':
             sqft = 0
 
         if sqft != 0:
